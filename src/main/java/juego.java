@@ -2,11 +2,6 @@ import java.util.Random;
 
 public class juego {
     public static void main(String[] args){
-            String[][] mazo = inicializarCartasJuego(crearMatrizCartas());
-            for(int i=0;i<12;i++){
-                System.out.print(mazo[i][0]);
-                System.out.println(mazo[i][1]);
-            }
     }
     //crear Matriz de las cartas.
     public static String[][] crearMatrizCartas(){
@@ -48,6 +43,26 @@ public class juego {
         return posicionCarta;
     }
     //jugar
-    //imprimir resultado
+    public static void jugar(){
+        String[][] mazo = inicializarCartasJuego(crearMatrizCartas());
+        int jugador1 = 0;
+        int jugador2 = 0;
+        for(int i=0;i<3;i++){
+            int obtenerPuntaje = obtenerCartas();
+            jugador1 = jugador1 + Integer.parseInt(mazo[obtenerPuntaje][1]);
+        }
+        for(int i=0;i<3;i++) {
+            int obtenerPuntaje = obtenerCartas();
+            jugador2 = jugador2 + Integer.parseInt(mazo[obtenerPuntaje][1]);
+        }
+        System.out.println("El puntaje del jugador 1 es: "+jugador1);
+        System.out.println("El puntaje del jugador 2 es: "+jugador2);
+        if((jugador1 == 20 && jugador2 < 20) || (jugador1 <= 20 && jugador2 > 20)){
+            System.out.println("El ganador es el jugador 1");
+        }
+        if((jugador2 == 20 && jugador1 < 20) || (jugador1 > 20 && jugador2 <= 20)){
+            System.out.println("El ganador es el jugador 2");
+        }
+    }
     //menú
 }
