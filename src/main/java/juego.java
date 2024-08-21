@@ -2,6 +2,7 @@ import java.util.Random;
 
 public class juego {
     public static void main(String[] args){
+        jugar();
     }
     //crear Matriz de las cartas.
     public static String[][] crearMatrizCartas(){
